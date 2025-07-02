@@ -1,0 +1,701 @@
+/**
+ * Claims History Styles
+ * 
+ * Modern minimalist styling with micro animations for the claims history page
+ */
+
+:root {
+    --primary-color: #0d6efd;
+    --primary-light: #e7f1ff;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+    --border-radius: 0.375rem;
+    --card-border-radius: 0.5rem;
+    --transition-speed: 0.3s;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --box-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Wrapper */
+.search-wrapper {
+    position: relative;
+}
+
+.search-wrapper .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-500);
+    z-index: 2;
+}
+
+.search-wrapper .form-control {
+    padding-left: 40px;
+}
+
+/* Quick Filters */
+.quick-filters {
+    padding: 16px 0;
+    border-top: 1px solid var(--gray-200);
+}
+
+.quick-filters h6 {
+    color: var(--gray-700);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.quick-filters .btn {
+    margin-bottom: 8px;
+}
+
+/* Summary Cards */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--card-border-radius);
+    padding: 20px;
+    text-align: center;
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-card:hover {
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.summary-card.primary {
+    border-left: 4px solid var(--primary-color);
+}
+
+.summary-card.success {
+    border-left: 4px solid var(--success-color);
+}
+
+.summary-card.warning {
+    border-left: 4px solid var(--warning-color);
+}
+
+.summary-card.info {
+    border-left: 4px solid var(--info-color);
+}
+
+.summary-card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 24px;
+    color: white;
+}
+
+.summary-card.primary .summary-card-icon {
+    background-color: var(--primary-color);
+}
+
+.summary-card.success .summary-card-icon {
+    background-color: var(--success-color);
+}
+
+.summary-card.warning .summary-card-icon {
+    background-color: var(--warning-color);
+}
+
+.summary-card.info .summary-card-icon {
+    background-color: var(--info-color);
+}
+
+.summary-card-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 8px 0;
+    line-height: 1;
+}
+
+.summary-card-label {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin: 0;
+    font-weight: 500;
+}
+
+.summary-card-change {
+    font-size: 0.75rem;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.summary-card-change.positive {
+    color: var(--success-color);
+}
+
+.summary-card-change.negative {
+    color: var(--danger-color);
+}
+
+.summary-card-change.neutral {
+    color: var(--gray-600);
+}
+
+/* Claims Table */
+.claims-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.claims-table th {
+    background-color: var(--gray-100);
+    border-bottom: 2px solid var(--gray-200);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--gray-700);
+    position: relative;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.claims-table th:hover {
+    background-color: var(--gray-200);
+}
+
+.claims-table th.sortable {
+    user-select: none;
+}
+
+.claims-table th .sort-icon {
+    margin-left: 8px;
+    color: var(--gray-400);
+    transition: color var(--transition-speed);
+}
+
+.claims-table th.sort-asc .sort-icon,
+.claims-table th.sort-desc .sort-icon {
+    color: var(--primary-color);
+}
+
+.claims-table th.sort-asc .sort-icon::before {
+    content: "\F148"; /* bi-arrow-up */
+}
+
+.claims-table th.sort-desc .sort-icon::before {
+    content: "\F149"; /* bi-arrow-down */
+}
+
+.claims-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--gray-200);
+    vertical-align: middle;
+}
+
+.claims-table tbody tr {
+    transition: background-color var(--transition-speed);
+    cursor: pointer;
+}
+
+.claims-table tbody tr:hover {
+    background-color: var(--gray-50);
+}
+
+.claims-table tbody tr.selected {
+    background-color: var(--primary-light);
+}
+
+/* Table Cell Styles */
+.employee-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.employee-avatar-small {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.employee-info h6 {
+    margin: 0 0 2px 0;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.employee-nik {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--gray-600);
+}
+
+.amount-cell {
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.amount-cell.large {
+    color: var(--primary-color);
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.approved {
+    background-color: #d1e7dd;
+    color: #0a3622;
+}
+
+.status-badge.pending {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+.status-badge.rejected {
+    background-color: #f8d7da;
+    color: #58151c;
+}
+
+.action-buttons-cell {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 4px 8px;
+    border: none;
+    border-radius: var(--border-radius);
+    background: none;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    font-size: 14px;
+}
+
+.action-btn:hover {
+    color: var(--primary-color);
+    background-color: var(--primary-light);
+}
+
+.action-btn.danger:hover {
+    color: var(--danger-color);
+    background-color: #ffeaea;
+}
+
+/* Table Actions */
+.table-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--gray-200);
+    margin-top: 20px;
+}
+
+.pagination-info {
+    color: var(--gray-600);
+    font-size: 0.875rem;
+}
+
+.per-page-select {
+    padding: 4px 8px;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    background: white;
+    color: var(--gray-700);
+    font-size: 0.875rem;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.pagination-buttons button {
+    padding: 8px 16px;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    background: white;
+    color: var(--gray-700);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    font-size: 0.875rem;
+}
+
+.pagination-buttons button:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.pagination-buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Modal Enhancements */
+.modal-xl .modal-body {
+    padding: 0;
+}
+
+.claim-details-content {
+    padding: 24px;
+}
+
+.claim-section {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.claim-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.claim-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.claim-section-title i {
+    color: var(--primary-color);
+}
+
+.claim-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.claim-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.claim-detail-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.claim-detail-value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gray-900);
+}
+
+.claim-detail-value.large {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.balance-impact-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--card-border-radius);
+    padding: 20px;
+}
+
+.balance-calculation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.balance-calculation:last-child {
+    margin-bottom: 0;
+    padding-top: 8px;
+    border-top: 1px solid var(--gray-300);
+    font-weight: 600;
+}
+
+.audit-trail {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.audit-item {
+    display: flex;
+    align-items: start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.audit-item:last-child {
+    border-bottom: none;
+}
+
+.audit-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.audit-content {
+    flex: 1;
+}
+
+.audit-action {
+    font-weight: 600;
+    color: var(--gray-900);
+    margin: 0 0 4px 0;
+}
+
+.audit-details {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin: 0;
+}
+
+.audit-timestamp {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    margin-top: 4px;
+}
+
+/* Export Progress */
+.export-progress {
+    padding: 20px;
+}
+
+.progress {
+    height: 8px;
+    background-color: var(--gray-200);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+    transition: width 0.5s ease;
+}
+
+/* Empty States */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state i {
+    font-size: 64px;
+    color: var(--gray-400);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.empty-state h5 {
+    color: var(--gray-700);
+    margin-bottom: 12px;
+}
+
+.empty-state p {
+    color: var(--gray-600);
+    margin-bottom: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filtered-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.filtered-empty-state h6 {
+    color: var(--gray-700);
+    margin-bottom: 8px;
+}
+
+.filtered-empty-state p {
+    color: var(--gray-600);
+    margin-bottom: 16px;
+}
+
+/* Loading States */
+.loading-skeleton {
+    animation: skeleton-loading 1.5s infinite ease-in-out;
+}
+
+.skeleton-line {
+    background: linear-gradient(
+        90deg,
+        var(--gray-200) 25%,
+        var(--gray-300) 50%,
+        var(--gray-200) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s infinite;
+    height: 16px;
+    border-radius: 4px;
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Filter Indicators */
+.active-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.filter-tag {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-tag .remove-filter {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity var(--transition-speed);
+}
+
+.filter-tag .remove-filter:hover {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .claims-table {
+        min-width: 800px;
+    }
+}
+
+@media (max-width: 768px) {
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .pagination-controls {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .pagination-buttons {
+        justify-content: center;
+    }
+
+    .table-actions {
+        flex-direction: column;
+    }
+
+    .claim-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .balance-calculation {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
+
+@media (max-width: 576px) {
+    .employee-cell {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .action-buttons-cell {
+        flex-direction: column;
+    }
+
+    .claims-table th,
+    .claims-table td {
+        padding: 8px;
+    }
+
+    .summary-card {
+        padding: 16px;
+    }
+}
