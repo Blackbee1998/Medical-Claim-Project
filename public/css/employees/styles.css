@@ -319,7 +319,7 @@ button:hover {
 }
 
 .employee-table th {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: var(--gray-700);
     font-weight: 600;
     text-transform: uppercase;
@@ -971,6 +971,7 @@ button:hover {
 .form-floating {
     position: relative;
     width: 100%;
+    height: 100%;
 }
 
 .form-floating label {

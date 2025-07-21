@@ -15,7 +15,7 @@ const state = {
     pagination: {
         currentPage: 1,
         totalPages: 1,
-        perPage: 10,
+        perPage: 25,
         total: 0,
     },
     filters: {
@@ -1797,7 +1797,7 @@ async function handleEmployeeFormSubmit() {
             gender: document.getElementById("gender").value,
             level_employee_id: parseInt(
                 document.getElementById("level").value,
-                10
+                20
             ),
             marriage_status_id: marriageStatusId,
         };

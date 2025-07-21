@@ -36,6 +36,7 @@ class EmployeeSeeder extends Seeder
             ['level_employee_id' => '2', 'marriage_status_id,' => '3', 'nik' => '1440733', 'name' => 'ANTHONY', 'department' => 'TEKNIK', 'gender' => 'male'],
             ['level_employee_id' => '1', 'marriage_status_id,' => '3', 'nik' => '2340861', 'name' => 'WAHYUDI', 'department' => 'TEKNIK', 'gender' => 'male'],
             ['level_employee_id' => '1', 'marriage_status_id,' => '3', 'nik' => '9640134', 'name' => 'OMAN SUGANDA', 'department' => 'TEKNIK', 'gender' => 'male'],
+            ['level_employee_id' => '1', 'marriage_status_id,' => '3', 'nik' => '1640787', 'name' => 'REZA DEWANTORO', 'department' => 'HR & GA', 'gender' => 'male'],
             //['level_employee_id' => '', 'marriage_status_id,' => '', 'nik' => '', 'name' => '', 'department' => '', 'gender' => '']
         ];
 

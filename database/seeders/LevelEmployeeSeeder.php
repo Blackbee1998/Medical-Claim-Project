@@ -20,10 +20,30 @@ class LevelEmployeeSeeder extends Seeder
         LevelEmployees::truncate();
         Schema::enableForeignKeyConstraints();
 
+
+
         $data = [
-            ['name' => 'Staff'],
-            ['name' => 'Supervisor'],
+            ['name'=>'Direktur'],
+            ['name'=>'Manager'],
+            ['name'=>'Ass Manager'],
+            ['name'=>'Sekretaris'],
+            ['name'=>'Senior Supervisor'],  
+            ['name'=>'Supervisor'],
+            ['name'=>'Staff'],
+            ['name'=>'Safety'],
+            ['name'=>'Danru A'],
+            ['name'=>'Danru B'],
+            ['name'=>'Danru C'],
+            ['name'=>'Danru D'],
+            ['name'=>'Security'],
+            ['name'=>'Cleaning'],
+            ['name'=>'Gardening'],
+            ['name'=>'Gondola'],
+            ['name'=>'Teknik'],
+            ['name'=>'Waiters'],
         ];
+
+
 
         foreach ($data as $value) {
             LevelEmployees::insert([

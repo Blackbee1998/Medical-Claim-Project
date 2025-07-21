@@ -91,11 +91,11 @@ async function handleApiError(response, data) {
 /**
  * Get level employees with pagination, filtering, and sorting
  * @param {number} page - Page number (default: 1)
- * @param {number} perPage - Items per page (default: 10)
+ * @param {number} perPage - Items per page (default: 25)
  * @param {Object} filters - Filter options
  * @returns {Promise<Object>} API response with data and pagination
  */
-async function fetchLevelEmployees(page = 1, perPage = 10, filters = {}) {
+async function fetchLevelEmployees(page = 1, perPage = 25, filters = {}) {
     try {
         // Build query parameters
         const queryParams = new URLSearchParams({
@@ -122,7 +122,7 @@ async function fetchLevelEmployees(page = 1, perPage = 10, filters = {}) {
         const data = await response.json();
 
         // Handle 404 as empty state, not error
-        if (!response.ok) {
+        if (!response.ok) { 
             if (
                 response.status === 404 &&
                 data.message &&

@@ -687,7 +687,7 @@ const DataTransformer = {
             department: employeeData.department?.trim(),
             gender: employeeData.gender?.toLowerCase(), // Ensure lowercase for consistency
             level_employee_id:
-                parseInt(employeeData.level_employee_id, 10) || null,
+                parseInt(employeeData.level_employee_id, 25) || null,
             marriage_status_id:
                 parseInt(employeeData.marriage_status_id, 10) || null,
         };
@@ -724,8 +724,8 @@ const DataTransformer = {
         if (!pagination)
             return {
                 currentPage: 1,
-                totalPages: 1,
-                perPage: 10,
+                totalPages: 2,
+                perPage: 25,
                 total: 0,
             };
 
@@ -733,7 +733,7 @@ const DataTransformer = {
         return {
             currentPage: pagination.current_page || 1,
             totalPages: pagination.last_page || 1, // Use last_page directly from API
-            perPage: pagination.per_page || 10,
+            perPage: pagination.per_page || 25,
             total: pagination.total || 0,
             from: pagination.from || 0,
             to: pagination.to || 0,
